@@ -1,19 +1,14 @@
 const express = require('express');
 const router = express.Router();
 
+const authController = require('../controllers/authController');
+
 router.use('/contacts', require('./api/contacts'));
+router.use('/auth', require('./api/auth'));
 
-router.get('/', (req, res) => {
+router.get('/', authController.isAuthenticated, (req, res) => {
     res.send('wenas');
-})
-
-router.get('/login', (req, res) => {
-    res.send('login');
-})
-
-router.get('/register', (req, res) => {
-    res.send('register');
-})
+});
 
 module.exports = router;
 
