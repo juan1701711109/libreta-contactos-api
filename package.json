@@ -2,16 +2,15 @@
   "name": "libreta-contactos-api",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "author": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "main": "app.js",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "ejs": "^3.1.8",
     "express": "^4.18.2",
@@ -20,5 +19,11 @@
     "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
     "sequelize": "^6.25.8"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.3.1",
+    "supertest": "^6.3.1"
   }
 }

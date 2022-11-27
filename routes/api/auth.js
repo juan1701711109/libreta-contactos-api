@@ -16,8 +16,12 @@ router.post('/register', async (req, res) => {
 router.post('/login', async (req, res) => {
   try {
     const token = await authController.login(req.body, res);
+
+    if(token == false) {
+      return res.json({ success: false, mess: 'Incorrect credentials'});
+    }
     
-    return res.json({ success: true, mess: 'User Created Successfully', token: token});
+    return res.json({ success: true, mess: 'Login Successfully', token: token});
   } catch (error) {
     console.log(error)
     res.json({success: false, mess: 'Error creating user', err: error});

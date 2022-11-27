@@ -2,7 +2,6 @@ const { Contact } = require('../database/db');
 
 exports.getContacts = async () => {
   const contacts = await Contact.findAll();
-  console.log(contacts)
   return contacts;
 }
 

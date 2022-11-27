@@ -33,12 +33,12 @@ exports.login = async (body, res) => {
     const password = body.password;
 
     if(!username || !password) {
-      return "Enter your username and password";
+      return false;
     }
 
     const user = await this.getUser(username);
     if(!user || !(await bcryptjs.compare(password, user.password))){
-      return "Incorrect user or password";
+      return false;
     } else {
       const id = user.id;
       const token = jwt.sign({id:id, username: username}, process.env.JWT_SECRET, {
@@ -47,7 +47,7 @@ exports.login = async (body, res) => {
 
       console.log("TOKEN " + token + " usuario" + user);
 
-      res.cookie('jwt', token);
+      //res.cookie('jwt', token);
       return token;
     }
   } catch (error) {

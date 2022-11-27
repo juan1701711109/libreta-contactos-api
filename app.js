@@ -1,8 +1,14 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
+
 
 const app = express();
+
+app.use(cors({
+    origin: '*'
+}));
 
 require('./database/db');
 

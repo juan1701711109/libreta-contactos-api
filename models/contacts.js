@@ -11,5 +11,9 @@ module.exports = (sequelize, type) => {
 		phone: type.STRING,
 		cellphone: type.STRING,
 		address: type.STRING,
+		favorite: {
+			type: type.BOOLEAN,
+			defaultValue: false,
+		},	
 	})
 }

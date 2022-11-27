@@ -4,7 +4,7 @@ const { Contact } = require('../../database/db');
 const contactcontroller = require('../../controllers/ContactController');
 const authController = require('../../controllers/authController');
 
-router.get('/', authController.isAuthenticated, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const contacts = await contactcontroller.getContacts();
     res.json({success: true, contacts: contacts})
