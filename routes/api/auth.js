@@ -22,8 +22,7 @@ router.post('/login', async (req, res) => {
     }
     
     return res.json({ success: true, mess: 'Login Successfully', token: token});
-  } catch (error) {
-    console.log(error)
+  } catch (error) { 
     res.json({success: false, mess: 'Error creating user', err: error});
   }
 });

@@ -22,8 +22,6 @@ exports.register = async (body) => {
         expiresIn: process.env.JWT_TIEMPO_EXPIRA,
       })
 
-      console.log("TOKEN " + token + " usuario" + user);
-
       //res.cookie('jwt', token);
       return token;
   } catch (error) {
@@ -54,8 +52,6 @@ exports.login = async (body, res) => {
         expiresIn: process.env.JWT_TIEMPO_EXPIRA,
       })
 
-      console.log("TOKEN " + token + " usuario" + user);
-
       //res.cookie('jwt', token);
       return token;
     }
@@ -76,8 +72,7 @@ exports.isAuthenticated = async (req, res, next) => {
 
       req.user = user;
       return next();
-    } catch (error) {
-      console.log(error);
+    } catch (error) { 
       return next();
     }
   }
