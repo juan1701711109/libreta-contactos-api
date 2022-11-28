@@ -9,13 +9,23 @@ router.get('/', async (req, res) => {
     const contacts = await contactcontroller.getContacts();
     res.json({success: true, contacts: contacts})
   } catch (error) {
-    res.json({success: false, mess: 'Error getting contacts', err: error})
+    res.json({success: false, status: 200,  mess: 'Error getting contacts', err: error})
   }
 })
 
 router.get('/:id', async (req, res) => {
   try {
     const contact = await contactcontroller.getContact(req.params.id);
+
+    res.json({success: true, contact: contact});
+  } catch (error) {
+    res.json({success: false, mess: 'Error getting contact', err: error})
+  }
+  
+})
+router.get('/user/:id', async (req, res) => {
+  try {
+    const contact = await contactcontroller.getContactsByUser(req.params.id);
 
     res.json({success: true, contact: contact});
   } catch (error) {

@@ -5,6 +5,13 @@ exports.getContacts = async () => {
   return contacts;
 }
 
+exports.getContactsByUser = async (id) => {
+  const contacts = await Contact.findAll({
+    where: { user_id: id }
+  });
+  return contacts;
+}
+
 exports.getContact = async (id) => {
   const contact = await Contact.findByPk(id);
   return contact;

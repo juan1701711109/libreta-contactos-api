@@ -11,7 +11,8 @@ const sequelize = new Sequelize('libreta_contactos', 'root', 'root' ,{
 const Contact = contactModel(sequelize, Sequelize);
 const User = userModel(sequelize, Sequelize);
 
-User.belongsToMany(Contact, {through: "Contact_User"});
+User.hasMany(Contact, {foreignKey: "user_id"});
+Contact.belongsTo(User) 
 
 sequelize.sync({ force: false })
   .then(() => {

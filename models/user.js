@@ -8,4 +8,5 @@ module.exports = (sequelize, type) => {
 		username: type.STRING,
 		password: type.STRING,
 	})
+	
 }

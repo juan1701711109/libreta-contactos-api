@@ -16,7 +16,16 @@ exports.register = async (body) => {
     }
 
     const user = await User.create(newUser);
-    return user;
+
+    const id = user.id;
+      const token = jwt.sign({id:id, username: username}, process.env.JWT_SECRET, {
+        expiresIn: process.env.JWT_TIEMPO_EXPIRA,
+      })
+
+      console.log("TOKEN " + token + " usuario" + user);
+
+      //res.cookie('jwt', token);
+      return token;
   } catch (error) {
     return error;
   }
